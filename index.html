@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bageshworee Secondary School</title>
+    <style>
+        /* Modern Aesthetic CSS - Unique Design */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: #34495e;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+            min-height: 100vh;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--light);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 5px;
+        }
+        
+        /* Layout */
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header - Modern Glass Effect */
+        header {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95) 0%, rgba(52, 152, 219, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+        
+        .school-name {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            background: linear-gradient(45deg, #fff, #ecf0f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .school-motto {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            position: relative;
+        }
+        
+        /* Navigation - Modern Tabs */
+        nav {
+            background: white;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-bottom: 3px solid var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin: 0;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 22px 28px;
+            display: block;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+            background: linear-gradient(to bottom, rgba(52, 152, 219, 0.1), transparent);
+            border-bottom-color: var(--secondary);
+        }
+        
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::before {
+            width: 60%;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 50px 0;
+            position: relative;
+        }
+        
+        /* Section Styles - Modern Cards */
+        section {
+            margin-bottom: 60px;
+            padding: 40px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(52, 152, 219, 0.1);
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            font-size: 2.2rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        h3 {
+            color: var(--secondary);
+            margin: 25px 0 20px;
+            font-size: 1.6rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h3::before {
+            content: '▶';
+            color: var(--accent);
+            font-size: 0.8em;
+        }
+        
+        /* Table Styles - Modern Design */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 25px 0;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        th::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent), var(--warning));
+        }
+        
+        td {
+            padding: 18px 20px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.1);
+            transition: var(--transition);
+        }
+        
+        tr:nth-child(even) {
+            background-color: rgba(52, 152, 219, 0.03);
+        }
+        
+        tr:hover {
+            background-color: rgba(52, 152, 219, 0.08);
+            transform: scale(1.002);
+        }
+        
+        /* Gallery Styles - Modern Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .gallery-item {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item p {
+            padding: 20px;
+            background: white;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Form Styles */
+        form {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.05) 0%, rgba(236, 240, 241, 0.1) 100%);
+            padding: 35px;
+            border-radius: var(--radius);
+            margin-top: 25px;
+            border: 2px solid rgba(52, 152, 219, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid rgba(52, 152, 219, 0.2);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: white;
+            font-family: inherit;
+        }
+        
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        input[type="submit"] {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        input[type="submit"]::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        input[type="submit"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+        }
+        
+        input[type="submit"]:hover::before {
+            left: 100%;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--accent), var(--warning), var(--success));
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section {
+            position: relative;
+        }
+        
+        .footer-section h3 {
+            color: var(--warning);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .footer-links li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            transition: transform 0.3s;
+        }
+        
+        .footer-links li:hover::before {
+            transform: translateX(5px);
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--warning);
+            transform: translateX(5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(52, 152, 219, 0.1));
+            padding: 25px;
+            border-radius: var(--radius);
+            margin: 25px 0;
+            border-left: 5px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight::before {
+            content: '📢';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            opacity: 0.2;
+        }
+        
+        /* HR Styling */
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--secondary), transparent);
+            margin: 40px 0;
+        }
+        
+        hr.thick {
+            height: 5px;
+            background: linear-gradient(to right, var(--accent), var(--secondary), var(--accent));
+        }
+        
+        hr.dashed {
+            background: none;
+            border-top: 2px dashed var(--secondary);
+            margin: 35px 0;
+        }
+        
+        /* Special HTML Tags Styling */
+        pre {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.05), rgba(52, 152, 219, 0.05));
+            padding: 25px;
+            border-radius: var(--radius);
+            overflow-x: auto;
+            margin: 20px 0;
+            border-left: 5px solid var(--secondary);
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        code {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            color: var(--secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        blockquote {
+            border-left: 5px solid var(--accent);
+            padding: 30px;
+            margin: 30px 0;
+            font-style: italic;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.05), transparent);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            position: relative;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
+        blockquote::before {
+            content: '"';
+            position: absolute;
+            top: -15px;
+            left: 10px;
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.3;
+            font-family: serif;
+        }
+        
+        /* Details/Summary Styling */
+        details {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.05), rgba(236, 240, 241, 0.1));
+            padding: 20px;
+            border-radius: var(--radius);
+            margin: 20px 0;
+            border: 2px solid rgba(52, 152, 219, 0.1);
+            transition: var(--transition);
+        }
+        
+        details:hover {
+            border-color: var(--secondary);
+        }
+        
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--primary);
+            font-size: 1.1rem;
+            padding: 10px;
+            transition: var(--transition);
+            list-style: none;
+            position: relative;
+            padding-left: 35px;
+        }
+        
+        summary::before {
+            content: '+';
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+        
+        details[open] summary::before {
+            content: '-';
+            background: var(--accent);
+        }
+        
+        summary:hover {
+            color: var(--secondary);
+        }
+        
+        /* Progress Bar */
+        progress {
+            width: 100%;
+            height: 12px;
+            margin: 15px 0;
+            border-radius: 6px;
+            overflow: hidden;
+            border: none;
+        }
+        
+        progress::-webkit-progress-bar {
+            background-color: rgba(52, 152, 219, 0.1);
+            border-radius: 6px;
+        }
+        
+        progress::-webkit-progress-value {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 6px;
+        }
+        
+        /* Mark Tag */
+        mark {
+            background: linear-gradient(135deg, rgba(243, 156, 18, 0.2), rgba(231, 76, 60, 0.2));
+            padding: 3px 10px;
+            border-radius: 4px;
+            color: var(--dark);
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Address Styling */
+        address {
+            font-style: normal;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.05), transparent);
+            padding: 25px;
+            border-radius: var(--radius);
+            margin: 20px 0;
+            line-height: 1.8;
+            border: 1px solid rgba(52, 152, 219, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .school-name {
+                font-size: 2.5rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .school-name {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            nav ul li {
+                margin: 0;
+                border-bottom: 1px solid rgba(52, 152, 219, 0.1);
+            }
+            
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+            
+            nav ul li a {
+                padding: 18px;
+                text-align: center;
+            }
+            
+            section {
+                padding: 25px;
+                margin-bottom: 30px;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            h3 {
+                font-size: 1.4rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+                padding: 0 15px;
+            }
+            
+            .school-name {
+                font-size: 1.8rem;
+            }
+            
+            section {
+                padding: 20px;
+            }
+            
+            form {
+                padding: 25px;
+            }
+            
+            input[type="submit"] {
+                width: 100%;
+                padding: 18px;
+            }
+        }
+        
+        /* Animation for page load */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* Print Styles */
+        @media print {
+            nav, footer, .gallery, .highlight::before {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                color: black;
+            }
+            
+            section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="school-name">Bageshworee Secondary School</h1>
+            <p class="school-motto">"Education for Excellence, Values for Life"</p>
+            <p>Richoktar, malekhu</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#staff">Staff</a></li>
+                <li><a href="#classes">Classes</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Home Section -->
+        <section id="home">
+            <h2>Welcome to Bageshworee School</h2>
+            
+            <div class="highlight">
+                <p><strong>📢 Important Notice:</strong> All student need to attend regular class.</p>
+            </div>
+            
+            <p>Bageshworee Secondary School is one of the most popular and respected schools in the Dhading District. Located in a peaceful learning environment, our school is dedicated to providing quality education and shaping the future of young minds. We offer both Science Faculty and Management Faculty, allowing students to choose a path that suits their interests and career goals. With experienced teachers, well-maintained classrooms, laboratories, and a supportive academic atmosphere, we focus on academic excellence, discipline, and overall student development. We warmly welcome students and parents to join our educational family.</p>
+            
+            <p>Our school offers:</p>
+            <ul>
+                <li>Classes 1 to 12</li>
+                <li>Physic, Chemistry, Biology and Computer Labs</li>
+                <li>Library with 5000+ books</li>
+                <li>Sports facilities</li>
+                <li>Transportation service by bus</li>
+            </ul>
+            
+            <h3>School Hours</h3>
+            <table>
+                <tr>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Activity</th>
+                </tr>
+                <tr>
+                    <td>Sunday to Friday</td>
+                    <td>9:00 AM - 4:00 PM</td>
+                    <td>Regular Classes</td>
+                </tr>
+                <tr>
+                    <td>Sunday-Monday class 11</td>
+                    <td>3:25 PM - 4:25 PM</td>
+                    <td>Physic</td>
+                </tr>
+                <tr>
+                    <td>Tuesday-Wednesday class 11</td>
+                    <td>3:25 PM - 4:25 PM</td>
+                    <td>Biology</td>
+                </tr>
+                <tr>
+                    <td>Thursday-Friday class 11</td>
+                    <td>3:25 PM - 4:25 PM</td>
+                    <td>Chemistry</td>
+                </tr>
+                <tr>
+                    <td>Sunday-Monday class 12</td>
+                    <td>3:25 PM - 4:25 PM</td>
+                    <td>Biology</td>
+                </tr>
+                <tr>
+                    <td>Tuesday-Wednesday class 12</td>
+                    <td>3:25 PM - 4:25 PM</td>
+                    <td>Chemistry</td>
+                </tr>
+                <tr>
+                    <td>Thursday-Friday class 12</td>
+                    <td>3:25 PM - 4:25 PM</td>
+                    <td>Physic</td>
+                </tr>
+            </table>
+            
+            <!-- BR Tag Example -->
+            <h3>Contact Information</h3>
+            <p>
+                Bageshworee Secondary School<br>
+                Richoktar, Malekhu<br>
+                Bagmati Province, Nepal<br>
+                Phone: not avilable<br>
+                Email: info@bageshworee.edu.np
+            </p>
+            
+            <hr>
+            
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Our School</h2>
+            
+            <p>Bageshworee Secondary School is a leading educational institution in Dhading District, offering Science and Management faculties. We are committed to quality education, discipline, and holistic student development in a supportive learning environment.</p>
+            
+            <h3>Our Vision</h3>
+            <blockquote>
+                Our vision is to create a center of excellence in education that nurtures knowledgeable, skilled, and ethical students. We aim to inspire lifelong learning, innovation, and leadership, preparing our students to succeed in a competitive world and serve society responsibly.
+            </blockquote>
+            
+            <h3>School Facilities</h3>
+            <details>
+                <summary>View All Facilities</summary>
+                <ul>
+                    <li>Smart Classrooms with projectors & smart boards</li>
+                    <li>Science Laboratory</li>
+                    <li>Computer Lab with 30 computers</li>
+                    <li>Library with reading room</li>
+                    <li>Sports ground</li>
+                    <li>Music and Art room</li>
+                    <li>Canteen</li>
+                    <li>Medical room</li>
+                </ul>
+            </details>
+            
+            <!-- Mark Tag Example -->
+            <p>Our school was <mark>awarded "Best Community School"</mark> </p>
+        </section>
+
+        <!-- Staff Section -->
+        <section id="staff">
+            <h2>Our Teaching & Administrative Staff</h2>
+            
+            <!-- Staff Table -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>S.N.</th>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Subject/Department</th>
+                        <th>Contact</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>Ram Prasad Sharma</strong></td>
+                        <td>Principal</td>
+                        <td>Administration</td>
+                        <td>9841123456</td>
+                        <td>principal@samriddhi.edu.np</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>Sita Devi Koirala</strong></td>
+                        <td>Vice Principal</td>
+                        <td>Mathematics</td>
+                        <td>9841123457</td>
+                        <td>viceprincipal@samriddhi.edu.np</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong>Hari Bahadur Thapa</strong></td>
+                        <td>Senior Teacher</td>
+                        <td>Science</td>
+                        <td>9841123458</td>
+                        <td>hari.science@samriddhi.edu.np</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>Gita Kumari Shrestha</strong></td>
+                        <td>Senior Teacher</td>
+                        <td>English</td>
+                        <td>9841123459</td>
+                        <td>gita.english@samriddhi.edu.np</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>Bikram Singh Basnet</strong></td>
+                        <td>Teacher</td>
+                        <td>Nepali</td>
+                        <td>9841123460</td>
+                        <td>bikram.nepali@samriddhi.edu.np</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><strong>Sunita Rai</strong></td>
+                        <td>Teacher</td>
+                        <td>Social Studies</td>
+                        <td>9841123461</td>
+                        <td>sunita.social@samriddhi.edu.np</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><strong>Ramesh Kumar Yadav</strong></td>
+                        <td>Teacher</td>
+                        <td>Computer Science</td>
+                        <td>9841123462</td>
+                        <td>ramesh.computer@samriddhi.edu.np</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><strong>Anita Gurung</strong></td>
+                        <td>Teacher</td>
+                        <td>Health & Physical Education</td>
+                        <td>9841123463</td>
+                        <td>anita.pe@samriddhi.edu.np</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td><strong>Krishna Prasad Adhikari</strong></td>
+                        <td>Accountant</td>
+                        <td>Accounts Department</td>
+                        <td>9841123464</td>
+                        <td>accounts@samriddhi.edu.np</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td><strong>Mohan Thapa</strong></td>
+                        <td>Librarian</td>
+                        <td>Library</td>
+                        <td>9841123465</td>
+                        <td>library@samriddhi.edu.np</td>
+                    </tr>
+                    <tr>
+                        <td>11 science</td>
+                        <td><strong>Puja Regmi</strong></td>
+                        <td>Librarian</td>
+                        <td>Library</td>
+                        <td>9841123465</td>
+                        <td>library@samriddhi.edu.np</td>
+                    </tr>
+                    <tr>
+                        <td>12 science</td>
+                        <td><strong>Sk Thapa</strong></td>
+                        <td>Librarian</td>
+                        <td>Library</td>
+                        <td>9841123465</td>
+                        <td>library@samriddhi.edu.np</td>
+                    </tr>
+                    <tr>
+                        <td>11 management</td>
+                        <td><strong>Uma Sharma </strong></td>
+                        <td>Librarian</td>
+                        <td>Library</td>
+                        <td>9841123465</td>
+                        <td>library@samriddhi.edu.np</td>
+                    </tr>
+                    <tr>
+                        <td>12 management</td>
+                        <td><strong>Mohan Thapa</strong></td>
+                        <td>Librarian</td>
+                        <td>Library</td>
+                        <td>9841123465</td>
+                        <td>library@samriddhi.edu.np</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </section>
+
+        <!-- Classes Section -->
+        <section id="classes">
+            <h2>Our Classes & Facilities</h2>
+            
+            <p>We have classes from Grade 1 to Grade 12 with separate sections for primary and secondary levels.</p>
+            
+            <!-- Class Images Gallery -->
+            <h3>Classroom Photos</h3>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="vidoe/Screenshot 2026-01-26 at 9.58.12 pm.png" alt="Grade 1 Classroom">
+                    <p>Grade 11 science Classroom</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="vidoe/image.png" alt="Grade 5 Classroom">
+                    <p>Grade 5 Classroom</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Computer Lab">
+                    <p>Computer Laboratory</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <h2>School Gallery</h2>
+            
+            <p>Explore our school through these photos:</p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="vidoe/image copy 2.png" alt="School Building">
+                    <p>First in district level football competition</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="vidoe/image copy.png" alt="School Building">
+                    <p>First in district level football competition</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="vidoe/image copy 3.png" alt="Science Lab">
+                    <p>Program</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="vidoe/ChatGPT Image Dec 19, 2025 at 07_04_07 PM.png" alt="Library">
+                    <p>first in district level science excuvation</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="vidoe/image copy 4.png" alt="Library">
+                    <p>School family</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Our School</h2>
+            
+            <div class="highlight">
+                <p><strong>Office Hours:</strong> Sunday to Friday, 10:00 AM to 4:00 PM</p>
+            </div>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>School Address</h3>
+                    <address>
+                        <strong>Bageshowree Secondary School</strong><br>
+                        Richoktar, malekhu<br>
+                        Bagmati Province, Nepal
+                    </address>
+                    
+                    <h3>Contact Details</h3>
+                    <p>📞 Phone: 9761614027</p>
+                    <p>📧 Email: info@bageshworeeschool.edu.np</p>
+                    <p>🌐 Website: www.bageshworeeschool.edu.np</p>
+                    
+                    <h3>Location Map</h3>
+                    <p>We are located near malekhu petrol pump, 5 minutes walk from the prithivi highway.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bageshworee secondary School</h3>
+                    <p>Providing quality education Affiliated with Government of Nepal, Ministry of Education.</p>
+                    <p><strong>Our Motto:</strong> "Learn, Grow, Succeed"</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#staff">Staff Directory</a></li>
+                        <li><a href="#classes">Class Information</a></li>
+                        <li><a href="#gallery">Photo Gallery</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Academic Calendar</a></li>
+                        <li><a href="#">Exam Schedule</a></li>
+                        <li><a href="#">Fee Structure</a></li>
+                        <li><a href="#">School Rules</a></li>
+                        <li><a href="#">Downloads</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <p>Follow us for updates:</p>
+                    <p>
+                        📘 Facebook: bageshworee secondary School<br>
+                        📧 Email: info@bageshworeeschool.edu.np
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
