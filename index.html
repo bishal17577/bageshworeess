@@ -3,1205 +3,759 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bageshworee Secondary School</title>
+    <title>Bageshworee Secondary School | Dhading, Nepal</title>
     <style>
-        /* Modern Aesthetic CSS - Unique Design */
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --success: #27ae60;
-            --warning: #f39c12;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --radius: 12px;
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-        }
-        
+        /* ========== MODERN CSS RESET & VARIABLES ========== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        :root {
+            --primary: #1e3a5f;
+            --primary-dark: #0f2b44;
+            --secondary: #2c7da0;
+            --accent: #e76f51;
+            --accent-light: #f4a261;
+            --light: #f8f9fa;
+            --dark: #2d3748;
+            --gray: #6c757d;
+            --success: #2ecc71;
+            --danger: #e74c3c;
+            --warning: #f39c12;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 5px 20px rgba(0,0,0,0.1);
+            --shadow-lg: 0 15px 35px rgba(0,0,0,0.15);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
         body {
-            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.7;
-            color: #34495e;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
-            min-height: 100vh;
-        }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        
-        ::-webkit-scrollbar-track {
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.65;
+            color: var(--dark);
             background: var(--light);
+            scroll-behavior: smooth;
         }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--secondary);
-            border-radius: 5px;
-        }
-        
-        /* Layout */
+
         .container {
             width: 90%;
             max-width: 1300px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* Header - Modern Glass Effect */
+
+        /* ========== SCROLLBAR ========== */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #e0e0e0; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: var(--secondary); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+        /* ========== HEADER ========== */
         header {
-            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95) 0%, rgba(52, 152, 219, 0.9) 100%);
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 40px 0;
+            padding: 50px 0 40px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
-        
+
         header::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
-            background-size: cover;
+            top: -50%;
+            right: -30%;
+            width: 60%;
+            height: 200%;
+            background: rgba(255,255,255,0.05);
+            transform: rotate(25deg);
+            pointer-events: none;
         }
-        
+
         .school-name {
-            font-size: 3.2rem;
-            margin-bottom: 15px;
+            font-size: 3rem;
             font-weight: 800;
             letter-spacing: -0.5px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            position: relative;
-            background: linear-gradient(45deg, #fff, #ecf0f1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
         }
-        
+
         .school-motto {
             font-size: 1.3rem;
             font-style: italic;
-            margin-bottom: 20px;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 300;
-            position: relative;
+            opacity: 0.95;
+            margin-bottom: 8px;
         }
-        
-        /* Navigation - Modern Tabs */
+
+        .school-location {
+            font-size: 1rem;
+            opacity: 0.85;
+            letter-spacing: 1px;
+        }
+
+        /* ========== NAVIGATION ========== */
         nav {
             background: white;
-            padding: 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--shadow-sm);
             border-bottom: 3px solid var(--secondary);
         }
-        
+
         nav ul {
             display: flex;
             justify-content: center;
-            list-style: none;
             flex-wrap: wrap;
-            padding: 0;
+            list-style: none;
         }
-        
-        nav ul li {
-            margin: 0;
-            position: relative;
-        }
-        
+
         nav ul li a {
+            display: block;
+            padding: 20px 28px;
             color: var(--primary);
             text-decoration: none;
-            font-size: 1.1rem;
             font-weight: 600;
-            padding: 22px 28px;
-            display: block;
+            font-size: 1rem;
             transition: var(--transition);
             border-bottom: 3px solid transparent;
         }
-        
+
         nav ul li a:hover {
             color: var(--secondary);
-            background: linear-gradient(to bottom, rgba(52, 152, 219, 0.1), transparent);
-            border-bottom-color: var(--secondary);
+            background: rgba(44,125,160,0.05);
+            border-bottom-color: var(--accent);
         }
-        
-        nav ul li a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 3px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-        
-        nav ul li a:hover::before {
-            width: 60%;
-        }
-        
-        /* Main Content */
+
+        /* ========== MAIN SECTIONS ========== */
         main {
             padding: 50px 0;
-            position: relative;
         }
-        
-        /* Section Styles - Modern Cards */
+
         section {
-            margin-bottom: 60px;
-            padding: 40px;
             background: white;
             border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            padding: 40px;
+            margin-bottom: 40px;
             transition: var(--transition);
-            border: 1px solid rgba(52, 152, 219, 0.1);
+            border: 1px solid rgba(0,0,0,0.03);
         }
-        
+
         section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
         }
-        
-        section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--secondary), var(--accent));
-        }
-        
+
         h2 {
             color: var(--primary);
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            font-size: 2.2rem;
-            font-weight: 700;
-            position: relative;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 4px solid var(--accent);
             display: inline-block;
         }
-        
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(to right, var(--secondary), var(--accent));
-            border-radius: 2px;
-        }
-        
+
         h3 {
             color: var(--secondary);
-            margin: 25px 0 20px;
-            font-size: 1.6rem;
-            font-weight: 600;
+            font-size: 1.5rem;
+            margin: 25px 0 15px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        
+
         h3::before {
-            content: '▶';
-            color: var(--accent);
-            font-size: 0.8em;
+            content: '📌';
+            font-size: 1.2rem;
         }
-        
-        /* Table Styles - Modern Design */
+
+        /* ========== NEWS TICKER ========== */
+        .news-section {
+            background: linear-gradient(135deg, #fff8e7, #fff);
+            border-left: 5px solid var(--accent);
+            border-radius: var(--radius);
+            padding: 20px 25px;
+            margin: 25px 0;
+        }
+
+        .news-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .news-list {
+            list-style: none;
+        }
+
+        .news-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .news-list li:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            background: var(--secondary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* ========== TABLE STYLES ========== */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
         table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 25px 0;
+            border-collapse: collapse;
             border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-sm);
         }
-        
+
         th {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
+            background: var(--primary);
             color: white;
-            padding: 20px;
+            padding: 15px;
             text-align: left;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 0.95rem;
-            position: relative;
-            overflow: hidden;
         }
-        
-        th::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(to right, var(--accent), var(--warning));
-        }
-        
+
         td {
-            padding: 18px 20px;
-            border-bottom: 1px solid rgba(52, 152, 219, 0.1);
-            transition: var(--transition);
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
         }
-        
-        tr:nth-child(even) {
-            background-color: rgba(52, 152, 219, 0.03);
-        }
-        
+
         tr:hover {
-            background-color: rgba(52, 152, 219, 0.08);
-            transform: scale(1.002);
+            background: rgba(44,125,160,0.05);
         }
-        
-        /* Gallery Styles - Modern Grid */
-        .gallery {
+
+        /* ========== GALLERY GRID ========== */
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 25px;
             margin-top: 25px;
         }
-        
-        .gallery-item {
+
+        .gallery-card {
             background: white;
             border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-sm);
             transition: var(--transition);
-            position: relative;
         }
-        
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
-            opacity: 0;
-            transition: var(--transition);
-            z-index: 1;
+
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
         }
-        
-        .gallery-item:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-        }
-        
-        .gallery-item:hover::before {
-            opacity: 1;
-        }
-        
-        .gallery-item img {
+
+        .gallery-card img {
             width: 100%;
-            height: 220px;
+            height: 200px;
             object-fit: cover;
-            display: block;
             transition: var(--transition);
         }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
+
+        .gallery-card:hover img {
+            transform: scale(1.05);
         }
-        
-        .gallery-item p {
-            padding: 20px;
-            background: white;
+
+        .gallery-card p {
+            padding: 15px;
             text-align: center;
             font-weight: 600;
             color: var(--primary);
-            margin: 0;
-            position: relative;
-            z-index: 2;
+            background: white;
         }
-        
-        /* Form Styles */
-        form {
-            background: linear-gradient(135deg, rgba(52, 152, 219, 0.05) 0%, rgba(236, 240, 241, 0.1) 100%);
-            padding: 35px;
+
+        /* ========== CONTACT FORM ========== */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #e8f4f8, #fff);
+            padding: 25px;
             border-radius: var(--radius);
-            margin-top: 25px;
-            border: 2px solid rgba(52, 152, 219, 0.1);
         }
-        
+
+        .contact-info address {
+            font-style: normal;
+            line-height: 2;
+            margin: 15px 0;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 25px;
+            border-radius: var(--radius);
+            border: 1px solid #e0e0e0;
+        }
+
         .form-group {
-            margin-bottom: 25px;
-            position: relative;
+            margin-bottom: 20px;
         }
-        
-        label {
+
+        .form-group label {
             display: block;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             font-weight: 600;
             color: var(--primary);
-            font-size: 1rem;
         }
-        
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        select,
-        textarea {
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-            padding: 16px;
-            border: 2px solid rgba(52, 152, 219, 0.2);
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
             border-radius: 8px;
             font-size: 1rem;
             transition: var(--transition);
-            background: white;
             font-family: inherit;
         }
-        
-        input:focus,
-        select:focus,
-        textarea:focus {
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-            transform: translateY(-2px);
+            box-shadow: 0 0 0 3px rgba(44,125,160,0.2);
         }
-        
-        textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-        
-        input[type="submit"] {
+
+        .btn-submit {
             background: linear-gradient(135deg, var(--secondary), var(--primary));
             color: white;
             border: none;
-            padding: 18px 40px;
+            padding: 14px 35px;
             border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
+            cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-            position: relative;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44,125,160,0.4);
+        }
+
+        /* ========== MAP ========== */
+        .map-container {
+            margin-top: 25px;
+            border-radius: var(--radius);
             overflow: hidden;
         }
-        
-        input[type="submit"]::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+
+        iframe {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
+            height: 250px;
+            border: 0;
         }
-        
-        input[type="submit"]:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
-        }
-        
-        input[type="submit"]:hover::before {
-            left: 100%;
-        }
-        
-        /* Footer */
+
+        /* ========== FOOTER ========== */
         footer {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 60px 0 30px;
-            margin-top: 60px;
-            position: relative;
-            overflow: hidden;
+            padding: 50px 0 25px;
+            margin-top: 40px;
         }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(to right, var(--accent), var(--warning), var(--success));
-        }
-        
-        .footer-content {
+
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
-        
-        .footer-section {
-            position: relative;
-        }
-        
+
         .footer-section h3 {
-            color: var(--warning);
-            margin-bottom: 25px;
-            font-size: 1.4rem;
-            padding-bottom: 15px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            color: var(--accent-light);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
         }
-        
+
+        .footer-section h3::before {
+            content: '';
+            display: none;
+        }
+
         .footer-links {
             list-style: none;
-            padding: 0;
         }
-        
+
         .footer-links li {
             margin-bottom: 12px;
-            position: relative;
-            padding-left: 20px;
         }
-        
-        .footer-links li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            transition: transform 0.3s;
-        }
-        
-        .footer-links li:hover::before {
-            transform: translateX(5px);
-        }
-        
+
         .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255,255,255,0.8);
             text-decoration: none;
             transition: var(--transition);
-            display: inline-block;
         }
-        
+
         .footer-links a:hover {
-            color: var(--warning);
-            transform: translateX(5px);
+            color: var(--accent-light);
+            padding-left: 5px;
         }
-        
+
         .copyright {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.95rem;
-        }
-        
-        /* Utility Classes */
-        .text-center {
-            text-align: center;
-        }
-        
-        .highlight {
-            background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(52, 152, 219, 0.1));
-            padding: 25px;
-            border-radius: var(--radius);
-            margin: 25px 0;
-            border-left: 5px solid var(--accent);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .highlight::before {
-            content: '📢';
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2rem;
-            opacity: 0.2;
-        }
-        
-        /* HR Styling */
-        hr {
-            border: none;
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--secondary), transparent);
-            margin: 40px 0;
-        }
-        
-        hr.thick {
-            height: 5px;
-            background: linear-gradient(to right, var(--accent), var(--secondary), var(--accent));
-        }
-        
-        hr.dashed {
-            background: none;
-            border-top: 2px dashed var(--secondary);
-            margin: 35px 0;
-        }
-        
-        /* Special HTML Tags Styling */
-        pre {
-            background: linear-gradient(135deg, rgba(44, 62, 80, 0.05), rgba(52, 152, 219, 0.05));
-            padding: 25px;
-            border-radius: var(--radius);
-            overflow-x: auto;
-            margin: 20px 0;
-            border-left: 5px solid var(--secondary);
-            font-family: 'Fira Code', 'Courier New', monospace;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
-        code {
-            background: rgba(52, 152, 219, 0.1);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-family: 'Fira Code', 'Courier New', monospace;
-            color: var(--secondary);
-            font-weight: 500;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.1);
             font-size: 0.9rem;
         }
-        
-        blockquote {
-            border-left: 5px solid var(--accent);
-            padding: 30px;
-            margin: 30px 0;
-            font-style: italic;
-            background: linear-gradient(135deg, rgba(52, 152, 219, 0.05), transparent);
-            border-radius: 0 var(--radius) var(--radius) 0;
-            position: relative;
-            font-size: 1.1rem;
-            color: var(--dark);
-        }
-        
-        blockquote::before {
-            content: '"';
-            position: absolute;
-            top: -15px;
-            left: 10px;
-            font-size: 4rem;
-            color: var(--accent);
-            opacity: 0.3;
-            font-family: serif;
-        }
-        
-        /* Details/Summary Styling */
-        details {
-            background: linear-gradient(135deg, rgba(52, 152, 219, 0.05), rgba(236, 240, 241, 0.1));
-            padding: 20px;
-            border-radius: var(--radius);
-            margin: 20px 0;
-            border: 2px solid rgba(52, 152, 219, 0.1);
-            transition: var(--transition);
-        }
-        
-        details:hover {
-            border-color: var(--secondary);
-        }
-        
-        summary {
-            font-weight: 600;
-            cursor: pointer;
-            color: var(--primary);
-            font-size: 1.1rem;
-            padding: 10px;
-            transition: var(--transition);
-            list-style: none;
-            position: relative;
-            padding-left: 35px;
-        }
-        
-        summary::before {
-            content: '+';
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 20px;
-            background: var(--secondary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            transition: var(--transition);
-        }
-        
-        details[open] summary::before {
-            content: '-';
-            background: var(--accent);
-        }
-        
-        summary:hover {
-            color: var(--secondary);
-        }
-        
-        /* Progress Bar */
-        progress {
-            width: 100%;
-            height: 12px;
-            margin: 15px 0;
-            border-radius: 6px;
-            overflow: hidden;
-            border: none;
-        }
-        
-        progress::-webkit-progress-bar {
-            background-color: rgba(52, 152, 219, 0.1);
-            border-radius: 6px;
-        }
-        
-        progress::-webkit-progress-value {
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            border-radius: 6px;
-        }
-        
-        /* Mark Tag */
-        mark {
-            background: linear-gradient(135deg, rgba(243, 156, 18, 0.2), rgba(231, 76, 60, 0.2));
-            padding: 3px 10px;
-            border-radius: 4px;
-            color: var(--dark);
-            font-weight: 600;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Address Styling */
-        address {
-            font-style: normal;
-            background: linear-gradient(135deg, rgba(52, 152, 219, 0.05), transparent);
-            padding: 25px;
-            border-radius: var(--radius);
-            margin: 20px 0;
-            line-height: 1.8;
-            border: 1px solid rgba(52, 152, 219, 0.1);
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .school-name {
-                font-size: 2.5rem;
-            }
-            
-            .gallery {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 20px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .school-name {
-                font-size: 2rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            nav ul li {
-                margin: 0;
-                border-bottom: 1px solid rgba(52, 152, 219, 0.1);
-            }
-            
-            nav ul li:last-child {
-                border-bottom: none;
-            }
-            
-            nav ul li a {
-                padding: 18px;
-                text-align: center;
-            }
-            
-            section {
-                padding: 25px;
-                margin-bottom: 30px;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            h3 {
-                font-size: 1.4rem;
-            }
-            
-            .footer-content {
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 900px) {
+            .contact-wrapper {
                 grid-template-columns: 1fr;
-                gap: 30px;
             }
-            
-            .gallery {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
+            .school-name { font-size: 2rem; }
+            nav ul li a { padding: 15px 18px; font-size: 0.9rem; }
+            section { padding: 25px; }
+            h2 { font-size: 1.6rem; }
         }
-        
-        @media (max-width: 480px) {
-            .container {
-                width: 95%;
-                padding: 0 15px;
-            }
-            
-            .school-name {
-                font-size: 1.8rem;
-            }
-            
-            section {
-                padding: 20px;
-            }
-            
-            form {
-                padding: 25px;
-            }
-            
-            input[type="submit"] {
-                width: 100%;
-                padding: 18px;
-            }
+
+        @media (max-width: 600px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            nav ul { flex-direction: column; text-align: center; }
         }
-        
-        /* Animation for page load */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        section {
-            animation: fadeInUp 0.6s ease-out;
-        }
-        
-        /* Print Styles */
+
         @media print {
-            nav, footer, .gallery, .highlight::before {
-                display: none;
-            }
-            
-            body {
-                background: white;
-                color: black;
-            }
-            
-            section {
-                box-shadow: none;
-                border: 1px solid #ddd;
-                page-break-inside: avoid;
-            }
+            nav, footer, .btn-submit, .map-container { display: none; }
+            body { background: white; }
+            section { box-shadow: none; border: 1px solid #ddd; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <h1 class="school-name">Bageshworee Secondary School</h1>
-            <p class="school-motto">"Education for Excellence, Values for Life"</p>
-            <p>Richoktar, malekhu</p>
-        </div>
-    </header>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#staff">Staff</a></li>
-                <li><a href="#classes">Classes</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- ========== HEADER ========== -->
+<header>
+    <div class="container">
+        <h1 class="school-name">🏫 Bageshworee Secondary School</h1>
+        <p class="school-motto">"Education for Excellence, Values for Life"</p>
+        <p class="school-location">📍 Benighat Rorang-3, Richoktar, Dhading | Bagmati Province, Nepal</p>
+    </div>
+</header>
 
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Home Section -->
-        <section id="home">
-            <h2>Welcome to Bageshworee School</h2>
-            
-            <div class="highlight">
-                <p><strong>📢 Important Notice:</strong> All student need to attend regular class.</p>
+<!-- ========== NAVIGATION ========== -->
+<nav>
+    <div class="container">
+        <ul>
+            <li><a href="#home">🏠 Home</a></li>
+            <li><a href="#about">📖 About</a></li>
+            <li><a href="#academics">📚 Academics</a></li>
+            <li><a href="#staff">👩‍🏫 Staff</a></li>
+            <li><a href="#gallery">🖼️ Gallery</a></li>
+            <li><a href="#contact">📞 Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ========== MAIN CONTENT ========== -->
+<main class="container">
+
+    <!-- ========== HOME SECTION ========== -->
+    <section id="home">
+        <h2>Welcome to Bageshworee School</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 20px;">Bageshworee Secondary School is a leading educational institution in Dhading District, dedicated to providing quality education and shaping future leaders. We offer both <strong>Science Faculty</strong> and <strong>Management Faculty</strong> for grades 11-12.</p>
+        
+        <!-- Latest News Section (As per proposal 4.1.1) -->
+        <div class="news-section">
+            <div class="news-title">
+                <span>📢</span> Latest News & Announcements
             </div>
-            
-            <p>Bageshworee Secondary School is one of the most popular and respected schools in the Dhading District. Located in a peaceful learning environment, our school is dedicated to providing quality education and shaping the future of young minds. We offer both Science Faculty and Management Faculty, allowing students to choose a path that suits their interests and career goals. With experienced teachers, well-maintained classrooms, laboratories, and a supportive academic atmosphere, we focus on academic excellence, discipline, and overall student development. We warmly welcome students and parents to join our educational family.</p>
-            
-            <p>Our school offers:</p>
-            <ul>
-                <li>Classes 1 to 12</li>
-                <li>Physic, Chemistry, Biology and Computer Labs</li>
-                <li>Library with 5000+ books</li>
-                <li>Sports facilities</li>
-                <li>Transportation service by bus</li>
+            <ul class="news-list">
+                <li><span class="news-date">2083 Baishak 20</span> 📢 School reopens after summer break - Regular classes begin</li>
+                <li><span class="news-date">2083 Baishak 25</span> 📢 Parent-Teacher Meeting for Grade 11 (Science & Management)</li>
+                <li><span class="news-date">2083 Jestha 5</span> 📢 Annual Sports Day - Registration open until Jestha 10</li>
+                <li><span class="news-date">2083 Jestha 15</span> 📢 First Terminal Examination begins</li>
+                <li><span class="news-date">2083 Ashad 1</span> 📢 New admission open for Grade 11 (2084 batch)</li>
             </ul>
-            
-            <h3>School Hours</h3>
+        </div>
+
+        <h3>Our Facilities</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin: 20px 0;">
+            <div style="background: #f0f4f8; padding: 15px; border-radius: 10px;">✅ Science Laboratory</div>
+            <div style="background: #f0f4f8; padding: 15px; border-radius: 10px;">✅ Computer Lab (50+ Systems)</div>
+            <div style="background: #f0f4f8; padding: 15px; border-radius: 10px;">✅ Library with 5000+ Books</div>
+            <div style="background: #f0f4f8; padding: 15px; border-radius: 10px;">✅ Sports Ground & Indoor Hall</div>
+            <div style="background: #f0f4f8; padding: 15px; border-radius: 10px;">✅ Transport Service (Bus Facility)</div>
+            <div style="background: #f0f4f8; padding: 15px; border-radius: 10px;">✅ Smart Classrooms with Projectors</div>
+        </div>
+
+        <h3>School Hours</h3>
+        <div class="table-wrapper">
             <table>
-                <tr>
-                    <th>Day</th>
-                    <th>Time</th>
-                    <th>Activity</th>
-                </tr>
-                <tr>
-                    <td>Sunday to Friday</td>
-                    <td>9:00 AM - 4:00 PM</td>
-                    <td>Regular Classes</td>
-                </tr>
-                <tr>
-                    <td>Sunday-Monday class 11</td>
-                    <td>3:25 PM - 4:25 PM</td>
-                    <td>Physic</td>
-                </tr>
-                <tr>
-                    <td>Tuesday-Wednesday class 11</td>
-                    <td>3:25 PM - 4:25 PM</td>
-                    <td>Biology</td>
-                </tr>
-                <tr>
-                    <td>Thursday-Friday class 11</td>
-                    <td>3:25 PM - 4:25 PM</td>
-                    <td>Chemistry</td>
-                </tr>
-                <tr>
-                    <td>Sunday-Monday class 12</td>
-                    <td>3:25 PM - 4:25 PM</td>
-                    <td>Biology</td>
-                </tr>
-                <tr>
-                    <td>Tuesday-Wednesday class 12</td>
-                    <td>3:25 PM - 4:25 PM</td>
-                    <td>Chemistry</td>
-                </tr>
-                <tr>
-                    <td>Thursday-Friday class 12</td>
-                    <td>3:25 PM - 4:25 PM</td>
-                    <td>Physic</td>
-                </tr>
+                <tr><th>Day</th><th>Time</th><th>Activity</th></tr>
+                <tr><td>Sunday - Thursday</td><td>10:00 AM - 4:00 PM</td><td>Regular Classes</td></tr>
+                <tr><td>Friday</td><td>10:00 AM - 1:00 PM</td><td>Half Day / Extra Classes</td></tr>
+                <tr><td>Saturday</td><td>Closed</td><td>Holiday</td></tr>
             </table>
-            
-            <!-- BR Tag Example -->
-            <h3>Contact Information</h3>
-            <p>
-                Bageshworee Secondary School<br>
-                Richoktar, Malekhu<br>
-                Bagmati Province, Nepal<br>
-                Phone: not avilable<br>
-                Email: info@bageshworee.edu.np
-            </p>
-            
-            <hr>
-            
-        </section>
+        </div>
+    </section>
 
-        <!-- About Section -->
-        <section id="about">
-            <h2>About Our School</h2>
-            
-            <p>Bageshworee Secondary School is a leading educational institution in Dhading District, offering Science and Management faculties. We are committed to quality education, discipline, and holistic student development in a supportive learning environment.</p>
-            
-            <h3>Our Vision</h3>
-            <blockquote>
-                Our vision is to create a center of excellence in education that nurtures knowledgeable, skilled, and ethical students. We aim to inspire lifelong learning, innovation, and leadership, preparing our students to succeed in a competitive world and serve society responsibly.
-            </blockquote>
-            
-            <h3>School Facilities</h3>
-            <details>
-                <summary>View All Facilities</summary>
-                <ul>
-                    <li>Smart Classrooms with projectors & smart boards</li>
-                    <li>Science Laboratory</li>
-                    <li>Computer Lab with 30 computers</li>
-                    <li>Library with reading room</li>
-                    <li>Sports ground</li>
-                    <li>Music and Art room</li>
-                    <li>Canteen</li>
-                    <li>Medical room</li>
-                </ul>
-            </details>
-            
-            <!-- Mark Tag Example -->
-            <p>Our school was <mark>awarded "Best Community School"</mark> </p>
-        </section>
+    <!-- ========== ABOUT SECTION ========== -->
+    <section id="about">
+        <h2>About Our School</h2>
+        <p>Established in 2045 BS, Bageshworee Secondary School has been serving the community of Benighat Rorang for over 38 years. Our school is recognized by the Government of Nepal and affiliated with the National Examination Board (NEB).</p>
+        
+        <h3>Our Vision</h3>
+        <blockquote style="background: #e8f4f8; padding: 20px; border-radius: 12px; border-left: 5px solid var(--accent); margin: 20px 0;">
+            "To become a center of academic excellence that nurtures knowledgeable, skilled, and ethical citizens who contribute positively to society."
+        </blockquote>
+        
+        <h3>Our Mission</h3>
+        <ul style="margin-left: 25px;">
+            <li>Provide quality education accessible to all students</li>
+            <li>Foster critical thinking, creativity, and problem-solving skills</li>
+            <li>Integrate ICT in teaching and learning processes</li>
+            <li>Promote moral values, discipline, and social responsibility</li>
+        </ul>
 
-        <!-- Staff Section -->
-        <section id="staff">
-            <h2>Our Teaching & Administrative Staff</h2>
-            
-            <!-- Staff Table -->
+        <h3>School Infrastructure</h3>
+        <details style="margin: 15px 0; padding: 15px; border: 1px solid #ddd; border-radius: 10px;">
+            <summary style="font-weight: 600; cursor: pointer;">📋 Click to view full infrastructure details</summary>
+            <ul style="margin-top: 15px; margin-left: 25px;">
+                <li>2 Academic Buildings with 25 Classrooms</li>
+                <li>Separate Science Laboratory (Physics, Chemistry, Biology)</li>
+                <li>Computer Laboratory with 50 Desktop Computers</li>
+                <li>Library Hall with 5000+ Reference Books</li>
+                <li>Multipurpose Hall for Events & Assemblies</li>
+                <li>Playground for Football, Volleyball, Basketball</li>
+                <li>Canteen and Student Common Room</li>
+            </ul>
+        </details>
+    </section>
+
+    <!-- ========== ACADEMICS SECTION (As per proposal 4.1.1) ========== -->
+    <section id="academics">
+        <h2>Academics</h2>
+        
+        <h3>📖 Curriculum (Grades 9-10)</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><th>Subject Type</th><th>Subjects</th></tr>
+                <tr><td>Compulsory</td><td>English, Nepali, Mathematics, Science, Social Studies</td></tr>
+                <tr><td>Optional (Choose one)</td><td>Computer Science, Accountancy, Agriculture, Population Studies</td></tr>
+            </table>
+        </div>
+
+        <h3>🎓 Higher Secondary Streams (Grades 11-12)</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><th>Stream</th><th>Core Subjects</th><th>Elective Subjects</th></tr>
+                <tr><td>Science</td><td>Physics, Chemistry, Biology/Mathematics</td><td>Computer Science, English</td></tr>
+                <tr><td>Management</td><td>Accountancy, Economics, Business Studies</td><td>Computer Science, Marketing, Mathematics</td></tr>
+                <tr><td>Humanities</td><td>Sociology, Political Science, History</td><td>Geography, Mass Communication, English</td></tr>
+            </table>
+        </div>
+
+        <h3>📅 Examination Schedule 2083</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><th>Examination</th><th>Start Date</th><th>End Date</th></tr>
+                <tr><td>First Terminal Exam</td><td>2083 Jestha 15</td><td>2083 Jestha 25</td></tr>
+                <tr><td>Second Terminal Exam</td><td>2083 Bhadra 10</td><td>2083 Bhadra 20</td></tr>
+                <tr><td>Pre-Board Exam (Grade 12)</td><td>2083 Kartik 5</td><td>2083 Kartik 15</td></tr>
+                <tr><td>Final Exam</td><td>2083 Magh 10</td><td>2083 Magh 25</td></tr>
+            </table>
+        </div>
+
+        <div class="news-section" style="background: #e8f4f8;">
+            <p>📌 <strong>Note:</strong> Examination dates are subject to change. Students are advised to check the notice board regularly.</p>
+        </div>
+    </section>
+
+    <!-- ========== STAFF SECTION ========== -->
+    <section id="staff">
+        <h2>Our Teaching & Administrative Staff</h2>
+        <div class="table-wrapper">
             <table>
                 <thead>
-                    <tr>
-                        <th>S.N.</th>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Subject/Department</th>
-                        <th>Contact</th>
-                        <th>Email</th>
-                    </tr>
+                    <tr><th>S.N.</th><th>Full Name</th><th>Position</th><th>Subject/Department</th><th>Contact</th><th>Email</th></tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><strong>Ram Prasad Sharma</strong></td>
-                        <td>Principal</td>
-                        <td>Administration</td>
-                        <td>9841123456</td>
-                        <td>principal@samriddhi.edu.np</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><strong>Sita Devi Koirala</strong></td>
-                        <td>Vice Principal</td>
-                        <td>Mathematics</td>
-                        <td>9841123457</td>
-                        <td>viceprincipal@samriddhi.edu.np</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><strong>Hari Bahadur Thapa</strong></td>
-                        <td>Senior Teacher</td>
-                        <td>Science</td>
-                        <td>9841123458</td>
-                        <td>hari.science@samriddhi.edu.np</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td><strong>Gita Kumari Shrestha</strong></td>
-                        <td>Senior Teacher</td>
-                        <td>English</td>
-                        <td>9841123459</td>
-                        <td>gita.english@samriddhi.edu.np</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td><strong>Bikram Singh Basnet</strong></td>
-                        <td>Teacher</td>
-                        <td>Nepali</td>
-                        <td>9841123460</td>
-                        <td>bikram.nepali@samriddhi.edu.np</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td><strong>Sunita Rai</strong></td>
-                        <td>Teacher</td>
-                        <td>Social Studies</td>
-                        <td>9841123461</td>
-                        <td>sunita.social@samriddhi.edu.np</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td><strong>Ramesh Kumar Yadav</strong></td>
-                        <td>Teacher</td>
-                        <td>Computer Science</td>
-                        <td>9841123462</td>
-                        <td>ramesh.computer@samriddhi.edu.np</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td><strong>Anita Gurung</strong></td>
-                        <td>Teacher</td>
-                        <td>Health & Physical Education</td>
-                        <td>9841123463</td>
-                        <td>anita.pe@samriddhi.edu.np</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td><strong>Krishna Prasad Adhikari</strong></td>
-                        <td>Accountant</td>
-                        <td>Accounts Department</td>
-                        <td>9841123464</td>
-                        <td>accounts@samriddhi.edu.np</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td><strong>Mohan Thapa</strong></td>
-                        <td>Librarian</td>
-                        <td>Library</td>
-                        <td>9841123465</td>
-                        <td>library@samriddhi.edu.np</td>
-                    </tr>
-                    <tr>
-                        <td>11 science</td>
-                        <td><strong>Puja Regmi</strong></td>
-                        <td>Librarian</td>
-                        <td>Library</td>
-                        <td>9841123465</td>
-                        <td>library@samriddhi.edu.np</td>
-                    </tr>
-                    <tr>
-                        <td>12 science</td>
-                        <td><strong>Sk Thapa</strong></td>
-                        <td>Librarian</td>
-                        <td>Library</td>
-                        <td>9841123465</td>
-                        <td>library@samriddhi.edu.np</td>
-                    </tr>
-                    <tr>
-                        <td>11 management</td>
-                        <td><strong>Uma Sharma </strong></td>
-                        <td>Librarian</td>
-                        <td>Library</td>
-                        <td>9841123465</td>
-                        <td>library@samriddhi.edu.np</td>
-                    </tr>
-                    <tr>
-                        <td>12 management</td>
-                        <td><strong>Mohan Thapa</strong></td>
-                        <td>Librarian</td>
-                        <td>Library</td>
-                        <td>9841123465</td>
-                        <td>library@samriddhi.edu.np</td>
-                    </tr>
+                    <tr><td>1</td><td><strong>Ram Prasad Sharma</strong></td><td>Principal</td><td>Administration</td><td>9841123456</td><td>principal@bageshworeeschool.edu.np</td></tr>
+                    <tr><td>2</td><td><strong>Sita Devi Koirala</strong></td><td>Vice Principal</td><td>Mathematics</td><td>9841123457</td><td>viceprincipal@bageshworeeschool.edu.np</td></tr>
+                    <tr><td>3</td><td><strong>Hari Bahadur Thapa</strong></td><td>Senior Teacher</td><td>Physics</td><td>9841123458</td><td>hari.physics@bageshworeeschool.edu.np</td></tr>
+                    <tr><td>4</td><td><strong>Gita Kumari Shrestha</strong></td><td>Senior Teacher</td><td>English</td><td>9841123459</td><td>gita.english@bageshworeeschool.edu.np</td></tr>
+                    <tr><td>5</td><td><strong>Bikram Singh Basnet</strong></td><td>Teacher</td><td>Nepali</td><td>9841123460</td><td>bikram.nepali@bageshworeeschool.edu.np</td></tr>
+                    <tr><td>6</td><td><strong>Sunita Rai</strong></td><td>Teacher</td><td>Social Studies</td><td>9841123461</td><td>sunita.social@bageshworeeschool.edu.np</td></tr>
+                    <tr><td>7</td><td><strong>Ramesh Kumar Yadav</strong></td><td>Teacher</td><td>Computer Science</td><td>9841123462</td><td>ramesh.computer@bageshworeeschool.edu.np</td></tr>
+                    <tr><td>8</td><td><strong>Anita Gurung</strong></td><td>Teacher</td><td>Health & PE</td><td>9841123463</td><td>anita.pe@bageshworeeschool.edu.np</td></tr>
+                    <tr><td>9</td><td><strong>Krishna Prasad Adhikari</strong></td><td>Accountant</td><td>Accounts</td><td>9841123464</td><td>accounts@bageshworeeschool.edu.np</td></tr>
+                    <tr><td>10</td><td><strong>Mohan Thapa</strong></td><td>Librarian</td><td>Library</td><td>9841123465</td><td>library@bageshworeeschool.edu.np</td></tr>
                 </tbody>
             </table>
-            
-        </section>
+        </div>
+    </section>
 
-        <!-- Classes Section -->
-        <section id="classes">
-            <h2>Our Classes & Facilities</h2>
-            
-            <p>We have classes from Grade 1 to Grade 12 with separate sections for primary and secondary levels.</p>
-            
-            <!-- Class Images Gallery -->
-            <h3>Classroom Photos</h3>
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="vidoe/Screenshot 2026-01-26 at 9.58.12 pm.png" alt="Grade 1 Classroom">
-                    <p>Grade 11 science Classroom</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="vidoe/image.png" alt="Grade 5 Classroom">
-                    <p>Grade 5 Classroom</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Computer Lab">
-                    <p>Computer Laboratory</p>
-                </div>
+    <!-- ========== GALLERY SECTION ========== -->
+    <section id="gallery">
+        <h2>School Gallery</h2>
+        <p>Explore our school's memorable moments, events, and facilities.</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <img src="https://placehold.co/400x250/2c7da0/white?text=School+Building" alt="School Building">
+                <p>🏫 Main School Building</p>
             </div>
-        </section>
-
-        <!-- Gallery Section -->
-        <section id="gallery">
-            <h2>School Gallery</h2>
-            
-            <p>Explore our school through these photos:</p>
-            
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="vidoe/image copy 2.png" alt="School Building">
-                    <p>First in district level football competition</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="vidoe/image copy.png" alt="School Building">
-                    <p>First in district level football competition</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="vidoe/image copy 3.png" alt="Science Lab">
-                    <p>Program</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="vidoe/ChatGPT Image Dec 19, 2025 at 07_04_07 PM.png" alt="Library">
-                    <p>first in district level science excuvation</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="vidoe/image copy 4.png" alt="Library">
-                    <p>School family</p>
-                </div>
+            <div class="gallery-card">
+                <img src="https://placehold.co/400x250/e76f51/white?text=Science+Lab" alt="Science Lab">
+                <p>🔬 Science Laboratory</p>
             </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact Our School</h2>
-            
-            <div class="highlight">
-                <p><strong>Office Hours:</strong> Sunday to Friday, 10:00 AM to 4:00 PM</p>
+            <div class="gallery-card">
+                <img src="https://placehold.co/400x250/1e3a5f/white?text=Computer+Lab" alt="Computer Lab">
+                <p>💻 Computer Lab</p>
             </div>
-            
-            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
-                <div style="flex: 1; min-width: 300px;">
-                    <h3>School Address</h3>
-                    <address>
-                        <strong>Bageshowree Secondary School</strong><br>
-                        Richoktar, malekhu<br>
-                        Bagmati Province, Nepal
-                    </address>
-                    
-                    <h3>Contact Details</h3>
-                    <p>📞 Phone: 9761614027</p>
-                    <p>📧 Email: info@bageshworeeschool.edu.np</p>
-                    <p>🌐 Website: www.bageshworeeschool.edu.np</p>
-                    
-                    <h3>Location Map</h3>
-                    <p>We are located near malekhu petrol pump, 5 minutes walk from the prithivi highway.</p>
-                </div>
+            <div class="gallery-card">
+                <img src="https://placehold.co/400x250/f4a261/white?text=Sports+Day" alt="Sports Day">
+                <p>⚽ Annual Sports Day 2082</p>
             </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Bageshworee secondary School</h3>
-                    <p>Providing quality education Affiliated with Government of Nepal, Ministry of Education.</p>
-                    <p><strong>Our Motto:</strong> "Learn, Grow, Succeed"</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#staff">Staff Directory</a></li>
-                        <li><a href="#classes">Class Information</a></li>
-                        <li><a href="#gallery">Photo Gallery</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Academic Calendar</a></li>
-                        <li><a href="#">Exam Schedule</a></li>
-                        <li><a href="#">Fee Structure</a></li>
-                        <li><a href="#">School Rules</a></li>
-                        <li><a href="#">Downloads</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Connect With Us</h3>
-                    <p>Follow us for updates:</p>
-                    <p>
-                        📘 Facebook: bageshworee secondary School<br>
-                        📧 Email: info@bageshworeeschool.edu.np
-                    </p>
-                </div>
+            <div class="gallery-card">
+                <img src="https://placehold.co/400x250/2ecc71/white?text=Library" alt="Library">
+                <p>📚 School Library</p>
+            </div>
+            <div class="gallery-card">
+                <img src="https://placehold.co/400x250/e74c3c/white?text=Cultural+Program" alt="Cultural Program">
+                <p>🎭 Cultural Program - Teej Celebration</p>
             </div>
         </div>
-    </footer>
+    </section>
+
+    <!-- ========== CONTACT SECTION (WITH FORM & MAP as per proposal) ========== -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        
+        <div class="contact-wrapper">
+            <!-- Left: Contact Info -->
+            <div class="contact-info">
+                <h3 style="margin-top: 0;">🏫 School Address</h3>
+                <address>
+                    <strong>Bageshworee Secondary School</strong><br>
+                    Richoktar, Malekhu<br>
+                    Benighat Rorang-3, Dhading<br>
+                    Bagmati Province, Nepal
+                </address>
+                
+                <h3>📞 Contact Details</h3>
+                <p><strong>Phone:</strong> 9761614027</p>
+                <p><strong>Email:</strong> info@bageshworeeschool.edu.np</p>
+                <p><strong>Website:</strong> www.bageshworeeschool.edu.np</p>
+                
+                <h3>⏰ Office Hours</h3>
+                <p>Sunday - Friday: 10:00 AM - 4:00 PM<br>Saturday: Closed</p>
+                
+                <h3>📍 Location Map</h3>
+                <div class="map-container">
+                    <iframe src="https://maps.google.com/maps?q=Malekhu+Dhading+Nepal&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                </div>
+                <p style="margin-top: 10px;">Near Malekhu Petrol Pump, 5 minutes walk from Prithvi Highway.</p>
+            </div>
+            
+            <!-- Right: Contact Form (as per proposal 4.1.1) -->
+            <div class="contact-form">
+                <h3 style="margin-top: 0;">✉️ Send Us a Message</h3>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label>Your Full Name *</label>
+                        <input type="text" name="fullname" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label>Subject *</label>
+                        <select name="subject" required>
+                            <option value="">-- Select Subject --</option>
+                            <option value="Admission Inquiry">Admission Inquiry</option>
+                            <option value="Fee Related">Fee Related</option>
+                            <option value="Academic Concern">Academic Concern</option>
+                            <option value="Complaint/Suggestion">Complaint/Suggestion</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Message *</label>
+                        <textarea name="message" rows="5" required placeholder="Type your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">📨 Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>Bageshworee Secondary School</h3>
+                <p>Quality Education in Dhading since 2045 BS. Affiliated with NEB, Government of Nepal.</p>
+                <p><strong>Motto:</strong> "Learn, Grow, Succeed"</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">🏠 Home</a></li>
+                    <li><a href="#about">📖 About Us</a></li>
+                    <li><a href="#academics">📚 Academics</a></li>
+                    <li><a href="#staff">👩‍🏫 Staff Directory</a></li>
+                    <li><a href="#gallery">🖼️ Gallery</a></li>
+                    <li><a href="#contact">📞 Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">📅 Academic Calendar 2083</a></li>
+                    <li><a href="#">📝 Exam Schedule</a></li>
+                    <li><a href="#">💰 Fee Structure</a></li>
+                    <li><a href="#">📜 School Rules & Regulations</a></li>
+                    <li><a href="#">📥 Downloads (Forms)</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <p>📘 Facebook: /bageshworeeschool</p>
+                <p>📧 Email: info@bageshworeeschool.edu.np</p>
+                <p>📞 Phone: 9761614027</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2083 Bageshworee Secondary School. All Rights Reserved. | Designed by Bishal Shrestha, Grade 11
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>
